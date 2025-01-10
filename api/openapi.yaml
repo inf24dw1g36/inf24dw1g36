@@ -1,0 +1,540 @@
+openapi: 3.0.0
+info:
+  title: Hotels
+  description: an exemple rest api
+  contact:
+    name: Gustavo Amorin 043259
+    email: a043259@umaia.pt
+  version: 0.0.1
+servers:
+- url: http://localhost:8080
+  description: my localhost
+  variables:
+    basePath:
+      default: /
+paths:
+  /hotel:
+    get:
+      tags:
+      - HotelController
+      summary: Retrieve hotels
+      operationId: retrieveHotels
+      responses:
+        "200":
+          description: Array of Hotel model instances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Hotel'
+                x-content-type: application/json
+      x-swagger-router-controller: HotelController
+    post:
+      tags:
+      - HotelController
+      summary: Create a hotel
+      operationId: createHotel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Hotel'
+        required: true
+      responses:
+        "201":
+          description: Hotel created successfully
+      x-swagger-router-controller: HotelController
+  /hotels/{id}:
+    get:
+      tags:
+      - HotelController
+      summary: Retrieve a hotel by ID
+      operationId: retrieveHotel
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          description: Hotel ID
+      responses:
+        "200":
+          description: Hotel model instance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hotel'
+        "404":
+          description: Hotel not found
+      x-swagger-router-controller: HotelController
+    put:
+      tags:
+      - HotelController
+      summary: Update a hotel by ID
+      operationId: updateHotel
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          description: Hotel ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Hotel'
+        required: true
+      responses:
+        "200":
+          description: Hotel updated successfully
+        "404":
+          description: Hotel not found
+      x-swagger-router-controller: HotelController
+    delete:
+      tags:
+      - HotelController
+      summary: Delete a hotel by ID
+      operationId: deleteHotel
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          description: Hotel ID
+      responses:
+        "204":
+          description: Hotel deleted successfully
+        "404":
+          description: Hotel not found
+      x-swagger-router-controller: HotelController
+  /rooms:
+    get:
+      tags:
+      - RoomController
+      summary: Retrieve rooms
+      operationId: retrieveRooms
+      responses:
+        "200":
+          description: Array of Room model instances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Quarto'
+                x-content-type: application/json
+      x-swagger-router-controller: RoomController
+    post:
+      tags:
+      - RoomController
+      summary: Create a room
+      operationId: createRoom
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Quarto'
+        required: true
+      responses:
+        "201":
+          description: Room created successfully
+      x-swagger-router-controller: RoomController
+  /rooms/{id}:
+    get:
+      tags:
+      - RoomController
+      summary: Retrieve a room by ID
+      operationId: retrieveRoom
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          description: Room ID
+      responses:
+        "200":
+          description: Room model instance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quarto'
+        "404":
+          description: Room not found
+      x-swagger-router-controller: RoomController
+    put:
+      tags:
+      - RoomController
+      summary: Update a room by ID
+      operationId: updateRoom
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          description: Room ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Quarto'
+        required: true
+      responses:
+        "200":
+          description: Room updated successfully
+        "404":
+          description: Room not found
+      x-swagger-router-controller: RoomController
+    delete:
+      tags:
+      - RoomController
+      summary: Delete a room by ID
+      operationId: deleteRoom
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          description: Room ID
+      responses:
+        "204":
+          description: Room deleted successfully
+        "404":
+          description: Room not found
+      x-swagger-router-controller: RoomController
+  /reservations:
+    get:
+      tags:
+      - ReservationController
+      summary: Retrieve reservations
+      operationId: retrieveReservations
+      responses:
+        "200":
+          description: Array of Reservation model instances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Reserva'
+                x-content-type: application/json
+      x-swagger-router-controller: ReservationController
+    post:
+      tags:
+      - ReservationController
+      summary: Create a reservation
+      operationId: createReservation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reserva'
+        required: true
+      responses:
+        "201":
+          description: Reservation created successfully
+      x-swagger-router-controller: ReservationController
+  /reservations/{id}:
+    get:
+      tags:
+      - ReservationController
+      summary: Retrieve a reservation by ID
+      operationId: retrieveReservation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          description: Reservation ID
+      responses:
+        "200":
+          description: Reservation model instance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reserva'
+        "404":
+          description: Reservation not found
+      x-swagger-router-controller: ReservationController
+    put:
+      tags:
+      - ReservationController
+      summary: Update a reservation by ID
+      operationId: updateReservation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          description: Reservation ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reserva'
+        required: true
+      responses:
+        "200":
+          description: Reservation updated successfully
+        "404":
+          description: Reservation not found
+      x-swagger-router-controller: ReservationController
+    delete:
+      tags:
+      - ReservationController
+      summary: Delete a reservation by ID
+      operationId: deleteReservation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          description: Reservation ID
+      responses:
+        "204":
+          description: Reservation deleted successfully
+        "404":
+          description: Reservation not found
+      x-swagger-router-controller: ReservationController
+  /guests:
+    get:
+      tags:
+      - GuestController
+      summary: Retrieve guests
+      operationId: retrieveGuests
+      responses:
+        "200":
+          description: Array of Guest model instances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Hospede'
+                x-content-type: application/json
+      x-swagger-router-controller: GuestController
+    post:
+      tags:
+      - GuestController
+      summary: Create a guest
+      operationId: createGuest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Hospede'
+        required: true
+      responses:
+        "201":
+          description: Guest created successfully
+      x-swagger-router-controller: GuestController
+  /guests/{id}:
+    get:
+      tags:
+      - GuestController
+      summary: Retrieve a guest by ID
+      operationId: retrieveGuest
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          description: Guest ID
+      responses:
+        "200":
+          description: Guest model instance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hospede'
+        "404":
+          description: Guest not found
+      x-swagger-router-controller: GuestController
+    put:
+      tags:
+      - GuestController
+      summary: Update a guest by ID
+      operationId: updateGuest
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          description: Guest ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Hospede'
+        required: true
+      responses:
+        "200":
+          description: Guest updated successfully
+        "404":
+          description: Guest not found
+      x-swagger-router-controller: GuestController
+    delete:
+      tags:
+      - GuestController
+      summary: Delete a guest by ID
+      operationId: deleteGuest
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          description: Guest ID
+      responses:
+        "204":
+          description: Guest deleted successfully
+        "404":
+          description: Guest not found
+      x-swagger-router-controller: GuestController
+components:
+  schemas:
+    Hotel:
+      required:
+      - endereco
+      - estrelas
+      - nome
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the hotel
+        nome:
+          maxLength: 100
+          type: string
+          description: Name of the hotel
+        estrelas:
+          type: integer
+          description: Star rating of the hotel
+        endereco:
+          maxLength: 200
+          type: string
+          description: Address of the hotel
+      example:
+        endereco: endereco
+        nome: nome
+        id: 0
+        estrelas: 6
+    Quarto:
+      required:
+      - id_hotel
+      - numero
+      - preco
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the room
+        numero:
+          type: integer
+          description: Room number
+        preco:
+          type: number
+          description: Price of the room
+          format: float
+        id_hotel:
+          type: integer
+          description: Identifier of the associated hotel
+      example:
+        preco: 1.4658129
+        numero: 6
+        id_hotel: 5
+        id: 0
+    Hospede:
+      required:
+      - endereco
+      - nif
+      - nome
+      - telefone
+      type: object
+      properties:
+        nome:
+          maxLength: 100
+          type: string
+          description: Name of the guest
+        nif:
+          maxLength: 9
+          type: string
+          description: Tax identifier for the guest
+        telefone:
+          type: integer
+          description: Phone number of the guest
+        endereco:
+          maxLength: 200
+          type: string
+          description: Address of the guest
+      example:
+        telefone: 0
+        endereco: endereco
+        nome: nome
+        nif: nif
+    Reserva:
+      required:
+      - data_fim
+      - data_inic
+      - id_quarto
+      - nif_hospede
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the reservation
+        data_inic:
+          type: string
+          description: Start date and time of the reservation
+          format: date-time
+        data_fim:
+          type: string
+          description: End date and time of the reservation
+          format: date-time
+        id_quarto:
+          type: integer
+          description: Identifier of the reserved room
+        nif_hospede:
+          maxLength: 9
+          type: string
+          description: Tax identifier of the guest who made the reservation
+      example:
+        data_fim: 2000-01-23T04:56:07.000+00:00
+        data_inic: 2000-01-23T04:56:07.000+00:00
+        id: 0
+        id_quarto: 6
+        nif_hospede: nif_hospede
