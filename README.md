@@ -26,6 +26,32 @@ Este projeto tem como objetivo o desenvolvimento de uma aplicação web com base
 
 ## Estrutura do Projeto
 
+### Endpoints da API
+
+| Recurso      | Método  | Path                                   | Descrição                               |
+|--------------|---------|----------------------------------------|-----------------------------------------|
+| **Hotels**   | GET     | `/hotel`                               | Obter todos os hotéis.                 |
+|              | POST    | `/hotel`                               | Criar um novo hotel.                   |
+|              | GET     | `/hotels/{id}`                         | Obter um hotel pelo ID.                |
+|              | PUT     | `/hotels/{id}`                         | Atualizar um hotel pelo ID.            |
+|              | DELETE  | `/hotels/{id}`                         | Remover um hotel pelo ID.              |
+| **Rooms**    | GET     | `/rooms`                               | Obter todos os quartos.                |
+|              | POST    | `/rooms`                               | Criar um novo quarto.                  |
+|              | GET     | `/rooms/{id}`                          | Obter um quarto pelo ID.               |
+|              | PUT     | `/rooms/{id}`                          | Atualizar um quarto pelo ID.           |
+|              | DELETE  | `/rooms/{id}`                          | Remover um quarto pelo ID.             |
+| **Reservations** | GET | `/reservations`                        | Obter todas as reservas.               |
+|              | POST    | `/reservations`                        | Criar uma nova reserva.                |
+|              | GET     | `/reservations/{id}`                   | Obter uma reserva pelo ID.             |
+|              | PUT     | `/reservations/{id}`                   | Atualizar uma reserva pelo ID.         |
+|              | DELETE  | `/reservations/{id}`                   | Remover uma reserva pelo ID.           |
+| **Guests**   | GET     | `/guests`                              | Obter todos os hóspedes.               |
+|              | POST    | `/guests`                              | Criar um novo hóspede.                 |
+|              | GET     | `/guests/{id}`                         | Obter um hóspede pelo ID.              |
+|              | PUT     | `/guests/{id}`                         | Atualizar um hóspede pelo ID.          |
+|              | DELETE  | `/guests/{id}`                         | Remover um hóspede pelo ID.            |
+
+
 ### Backend
 
 - **`sql/`**: Contém os scripts SQL para criação da base de dados e inserção de dados iniciais.
