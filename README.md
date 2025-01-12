@@ -29,25 +29,13 @@ Este projeto tem como objetivo o desenvolvimento de uma aplicação web com base
 ### Backend
 
 - **`sql/`**: Contém os scripts SQL para criação da base de dados e inserção de dados iniciais.
-- **`src/`**: Contém o código da API.
-  - **`controllers/`**: Controladores dos modelos que gerenciam as requisições HTTP.
-  - **`datasources/`**: Configuração da conexão com o banco de dados MySQL.
-  - **`repositories/`**: Implementações de acesso aos dados.
-  - **`models/`**: Modelos de dados e relações entre os recursos.
-  - **`docker-compose.yaml`**: Arquivo de configuração do Docker para a criação do ambiente multi-container (Node.js + MySQL).
-  - **`openapi.json`**: Documentação da API no formato OpenAPI 3.0.
-  - **`postman/`**: Coleção de requisições para testes da API no Postman.
+- **`api/`**: Contém a estrutura yaml da api.
+- **`controllers/`**: Controladores dos modelos que gerenciam as requisições HTTP.
+- **`service/`**: Gerenciador dos caminhos da api.
+- **`utils/db.js`**: Conecção a base dados.
+- **`docker-compose.yaml`**: Arquivo de configuração do Docker para a criação do ambiente multi-container (Node.js + MySQL).
+- **`My_Api_Hotel.postman_collection.json`**: Coleção de requisições para testes da API no Postman.
 - **`README.md`**: Este arquivo com informações sobre o projeto.
-
-### Frontend (Backoffice)
-
-- **`frontend/backoffice/`**: Aplicação de backoffice baseada no React-Admin.
-  - **`src/`**: Código essencial da interface de administração.
-    - **`app.js`**: Configuração principal da interface.
-    - **`hotels.js`**: Interface para gestão dos hotéis.
-    - **`rooms.js`**: Interface para gestão dos quartos.
-    - **`guests.js`**: Interface para gestão dos hóspedes.
-    - **`reservations.js`**: Interface para gestão das reservas.
 
 ## Requisitos
 
@@ -56,10 +44,6 @@ Este projeto tem como objetivo o desenvolvimento de uma aplicação web com base
 - **Node.js** como framework para criação da API RESTful.
 - **MySQL** como banco de dados.
 - **Docker** para contentorização da aplicação.
-
-### Frontend
-
-- **React-Admin** para o desenvolvimento da interface de backoffice.
 
 ### Docker
 
@@ -76,5 +60,9 @@ Este projeto tem como objetivo o desenvolvimento de uma aplicação web com base
 1. **Clonar o repositório**:
 
    ```bash
-   git clone https://github.com/inf24dw1gXX/inf24dw1gXXm2
-   cd inf24dw1gXX/api-hotel-m3/
+   git clone https://github.com/inf24dw1g36/inf24dw1gX36
+   cd inf24dw1g36/
+   docker-compose up -d
+   ```
+
+   Browser: http://localhost:8080/docs
