@@ -67,9 +67,9 @@ Este projeto tem como objetivo o desenvolvimento de uma aplicação web com base
 
 ### Backend
 
-- **Node.js** como framework para criação da API RESTful.
-- **MySQL** como banco de dados.
-- **Docker** para contentorização da aplicação.
+- **Node.js** Como framework para criação da API RESTful.
+- **MySQL** Como banco de dados.
+- **Docker** Para contentorização da aplicação.
 
 ### Docker
 
@@ -80,15 +80,18 @@ Este projeto tem como objetivo o desenvolvimento de uma aplicação web com base
 ### Pré-requisitos
 
 - **Docker** instalado.
+- Garantir que nenhum serviço esta a utilizar as portas 8080 e 3306.
+- Garantir que o docker engine esteja executando.
 
 ### Passo a Passo
 
-1. **Clonar o repositório**:
+   Abra um terminal em um diretorio a sua escolha e digite os seguintes comandos: 
 
    ```bash
-   git clone https://github.com/inf24dw1g36/inf24dw1gX36
+   git clone https://github.com/inf24dw1g36/inf24dw1g36.git
    cd inf24dw1g36/
    docker-compose up -d
    ```
+   Espere até os container estarem ativos, quando isso acontecer o serviço sera disponibilizado no url a seguir. 
 
    Browser: http://localhost:8080/docs
