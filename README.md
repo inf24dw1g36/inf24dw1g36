@@ -94,4 +94,4 @@ Este projeto tem como objetivo o desenvolvimento de uma aplicação web com base
    ```
    Espere até os container estarem ativos, quando isso acontecer o serviço sera disponibilizado no url a seguir. 
 
-   Browser: http://localhost:8080/explorer
+   Browser: http://localhost:8080/explorer/
